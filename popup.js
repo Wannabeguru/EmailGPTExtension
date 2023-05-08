@@ -106,6 +106,10 @@ function updateSigninStatus(isSignedIn) {
     }
   }
 
+document.getElementById('sign-in').addEventListener('click', (event) => {
+  event.preventDefault();
+  gapi.auth2.getAuthInstance().signIn();
+});
 /*This code adds an event listener to an email reply form submission. It retrieves the value of an input field, 
 calls the getEmailDetails() function to create an email reply, and handles any errors that may occur. 
 This enables users to submit email replies with error handling.*/
