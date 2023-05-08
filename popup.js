@@ -106,10 +106,14 @@ function updateSigninStatus(isSignedIn) {
     }
   }
 
-document.getElementById('sign-in').addEventListener('click', (event) => {
-  event.preventDefault();
-  gapi.auth2.getAuthInstance().signIn();
-});
+
+//Added function to initalize eventlisteners.
+function initEventListeners() {
+    document.getElementById('sign-in').addEventListener('click', (event) => {
+      event.preventDefault();
+      gapi.auth2.getAuthInstance().signIn();
+    });
+
 /*This code adds an event listener to an email reply form submission. It retrieves the value of an input field, 
 calls the getEmailDetails() function to create an email reply, and handles any errors that may occur. 
 This enables users to submit email replies with error handling.*/
@@ -125,8 +129,10 @@ document.getElementById('replyForm').addEventListener('submit', (event) => {
       alert('Error fetching email details. Please make sure you have an email opened in Gmail.');
     });
   });
-
+}
 
 
 // Load the Google API client and authenticate the user when the window loads
 window.addEventListener('load', handleClientLoad);
+document.addEventListener('DOMContentLoaded', initEventListeners);
+
